@@ -17,9 +17,24 @@ export class TabsComponent implements OnInit {
     }
   ]
 
+  chosenList = 'all'
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onChoose(side) {
+    this.chosenList = side
+  }
+
+  getCharacters() {
+    if (this.chosenList === 'all') {
+      return this.characters.slice()
+    }
+    return this.characters.filter((char) => {
+      return char.side === this.chosenList
+    })
   }
 
 }
