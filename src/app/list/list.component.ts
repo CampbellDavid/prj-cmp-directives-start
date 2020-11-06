@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   }
 
   onSideAssigned(charInfo) {
-
+    this.sideAssigned.emit(charInfo)
   }
 
 }
