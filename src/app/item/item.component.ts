@@ -10,8 +10,11 @@ import { StarWarsService } from '../star-wars.service'
 export class ItemComponent implements OnInit {
   @Input() character;
   @Output() sideAssigned = new EventEmitter<{ name: string, side: string }>()
+  swService: StarWarsService
 
-  constructor() { }
+  constructor(swService: StarWarsService) {
+    this.swService = swService
+  }
 
   ngOnInit() {
   }
@@ -20,7 +23,7 @@ export class ItemComponent implements OnInit {
     // this.character.side = side
     // this.sideAssigned.emit({ name: this.character.name, side: side })
     const swService = new StarWarsService()
-    swService.onSideChosen({ name: this.character.name, side: side })
+    this.swService.onSideChosen({ name: this.character.name, side: side })
   }
 
 }
