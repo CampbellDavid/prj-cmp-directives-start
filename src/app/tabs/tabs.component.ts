@@ -26,7 +26,7 @@ export class TabsComponent implements OnInit {
   }
 
   getCharacters() {
-    const swService = new StarWarsService()
+
     this.characters = this.swService.getCharacters(this.chosenList)
     return this.characters
   }
