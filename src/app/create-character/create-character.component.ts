@@ -23,7 +23,8 @@ export class CreateCharacterComponent implements OnInit {
   }
 
   onSumbit(submittedForm) {
-    console.log(submittedForm.value)
+    if (submittedForm.invalid) { return }
+    console.log(submittedForm)
     this.swService.addCharacter(
       submittedForm.value.name,
       submittedForm.value.side
