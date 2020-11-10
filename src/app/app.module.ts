@@ -31,13 +31,13 @@ const routes = [
     ListComponent,
     ItemComponent,
     CreateCharacterComponent,
-    HeaderComponent,
-    HttpModule
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpModule
   ],
   providers: [StarWarsService, LogService],
   bootstrap: [AppComponent]
