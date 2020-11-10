@@ -48,11 +48,17 @@ export class StarWarsService {
     this.http
       .get('https://swapi.dev/api/people/')
       .map((response: Response) => {
-        return response.json()
+        const data = response.json()
+        const extractedChars = data.results
+        const chars = extractedChars.map((char) => {
+          return { name: char.name, side: '' }
+        })
+        return chars
       })
       .subscribe(
         (data) => {
           console.log(data)
+          this.characters = data
         }
       )
   }
